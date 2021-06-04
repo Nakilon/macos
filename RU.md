@@ -1,6 +1,6 @@
 Т.к. локализация в системе хорошая и нет проблем в ней что-то найти, то и нет смысла отказываться от русского, поэтому названия всех компонентов настройки будут здесь на русском.
 
-* настроить все в **Системных настройках**, например
+* настроить все в **Системных настройках**, например:
   * выключить "Исправлять ошибки автоматически", "Смарт-кавычки"
   * "Использовать функциональные клавиши как стандартные"
   * "Источник ввода -- США, Русская ПК" (на новых макбуках тильда будет слева внизу)
@@ -14,7 +14,7 @@
 * поставить Google **Chrome** и
   * либо (если это домашний компьютер) настроить параметры синхронизации, чтоб не засинхрил табы или еще чего
   * либо (если это рабочий компьютер) добавить в закладки корпоративные сервисы, проверить почту
-  * поставить uBlock Origin (https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm) и Empty New Tab Page (https://chrome.google.com/webstore/detail/empty-new-tab-page/dpjamkmjmigaoobjbekmfgabipmfilij?hl=ru)
+  * поставить расширения **uBlock Origin** (https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm) и **Empty New Tab Page** (https://chrome.google.com/webstore/detail/empty-new-tab-page/dpjamkmjmigaoobjbekmfgabipmfilij?hl=ru)
 * установить **чатики** (Slack и пр.) либо пооткрывать их в закрепленных вкладках браузера вместе с почтой и пр.
 * настроить **Терминал** и **hostname**, который отображается в prompt-е (справка по настройке bash prompt -- http://ss64.com/osx/syntax-prompt.html)
   
@@ -24,7 +24,7 @@
   sudo scutil --set HostName "nakibook"
   ```
   возможно, что это можно сделать и через GUI: http://apple.stackexchange.com/a/83801/54395
-* установить **Sublime Text** (http://www.sublimetext.com/), настроить
+* установить **Sublime Text** (http://www.sublimetext.com/), настроить:
   
   ```
   {
@@ -61,18 +61,18 @@
   export HISTTIMEFORMAT='%F %T '
   # export PROMPT_COMMAND='history -a;'
 
-  # автоматически распечатывает локальный файл CATME.txt, когда вы делаете cd куда-либо
+  # автоматически распечатывает локальный файл `CATME.txt`, когда вы делаете `cd` куда-либо
   export PROMPT_COMMAND="history -a; if [[ -e CATME.txt && \"\$PWD\" != \"\$HOME\" && \"\$(history 1 | awk '{print \$4;}')\" == 'cd' ]]; then cat CATME.txt; fi;"
 
-  # потому что иначе локаль берется из настроек ОС, а там у нас стоит русский
   export LANG="en_US.UTF-8"
+  # потому что иначе локаль берется из настроек ОС, а там у нас стоит русский
 
   export CLICOLOR=1
   export EDITOR=nano
   export GREP_COLOR='01;31'
   export GREP_OPTIONS='--color=always'
 
-  # less будет всегда запускаться с флагом -R (для цветных букв)
+  # `less` будет всегда запускаться с флагом `-R` (для цветных букв)
   export LESS=' -R '
 
   # открывает картинки быстрей (а некоторые файлы, например .obj, даже правильней), чем просмотрщик, который вызывается через open
@@ -88,7 +88,7 @@
   далее уже в зависимости от того, что у вас будет установлено
   ```
   export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
-  # и положить туда одну строку: --no-ignore, чтоб он не игнорил файлы из .gitignore
+  # и положить туда одну строку: `--no-ignore`, чтоб он не игнорил файлы из `.gitignore`
   
   alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 
