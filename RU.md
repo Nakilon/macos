@@ -114,8 +114,8 @@
   ```
   ssh-keygen -t rsa -C "johndoe@example.com"
   chmod 700 ~/.ssh
-  chmod 600 ~/id_rsa
-  chmod 644 ~/id_rsa.pub
+  chmod 600 ~/.ssh/id_rsa
+  chmod 644 ~/.ssh/id_rsa.pub
   ```
 * установить Homebrew (http://brew.sh/) -- при этом будут автоматически установлены **XCode Command Line Utils**, в составе которых `git`, а далее всякие полезности по необходимости:
   
