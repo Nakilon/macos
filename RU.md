@@ -160,6 +160,11 @@
   [include]
     path = /Users/johndoe/backup/.gitconfig
   ```
+* выключить глючную колоризацию IRB
+
+  ```
+  echo "IRB.conf[:USE_COLORIZE] = false" > ~/.irbrc
+  ```
 * для восстановления атрибутов, если они попортились в ходе восстановления файлов из бэкапа
   
   ```bash

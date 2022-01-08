@@ -154,6 +154,11 @@
   [include]
     path = /Users/johndoe/backup/.gitconfig
   ```
+* disable the glitchy IRB colorization
+
+  ```
+  echo "IRB.conf[:USE_COLORIZE] = false" > ~/.irbrc
+  ```
 * to restore attributes if they were broken during some backup restore
   
   ```bash
