@@ -1,5 +1,5 @@
 * go through the **System Preferences**, for example:
-  * turn of the **Correct spelling automatically**, smart quotes
+  * turn off the **Correct spelling automatically**, smart quotes
   * switch change the Fn keys mode
 * after turning on the **trackpad pointer acceleration** you'll have to relogin (https://www.reddit.com/r/osx/comments/4u5cny/is_there_a_way_to_disable_trackpad_acceleration/)
   
