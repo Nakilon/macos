@@ -1,0 +1,7 @@
+#!/bin/bash
+for ft in $(find . -type f | { export GREP_OPTIONS="--color=never" && grep -E ".*\.[a-zA-Z0-9]*$"; } | sed -E 's/.*(\.[^\.]*)$/\1/' | sort | uniq)
+do
+  find . -name "*$ft" -exec stat -f%z {} \; | awk '{total += $1} END {printf "%s\t",total}'
+  # find . -name "*$ft" -exec echo 1 \; | awk '{total += $1} END {printf "%s\t",total}'
+  echo " $ft"
+done | sort -hr
