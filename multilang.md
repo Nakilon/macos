@@ -98,11 +98,13 @@ RU:  export LANG='en_US.UTF-8'  # потому что иначе локаль б
 RU:  # склонируйте этот репозиторий и добавьте bin к PATH
 EN:  # git clone this repo somewhere and append the bin dir to PATH
   export PATH="$HOME/_/REPOS/macos/bin:$PATH"
-RU:  # bin/ql                 открывает картинки быстрей (а некоторые файлы, например .obj, даже правильней), чем просмотрщик, который вызывается через open
-EN:  # bin/ql                 opens images faster (and for some files such as .obj even more correctly), than a `open` app
-RU:  # bin/subl               симлинк на Sublime Text
-EN:  # bin/subl               symlink to Sublime Text
-  # bin/size-by-extension  https://serverfault.com/a/367195/67097
+RU:  # bin/ql                   открывает картинки быстрей (а некоторые файлы, например .obj, даже правильней), чем просмотрщик, который вызывается через open
+EN:  # bin/ql                   opens images faster (and for some files such as .obj even more correctly), than a `open` app
+RU:  # bin/subl                 симлинк на Sublime Text
+EN:  # bin/subl                 symlink to Sublime Text
+  # bin/size-by-extension    https://serverfault.com/a/367195/67097
+RU:  # bin/number-by-directory  считает файлы в директориях
+EN:  # bin/number-by-directory  counts files in directories
 
 RU:  # если вы -- это я
 EN:  # if you are me

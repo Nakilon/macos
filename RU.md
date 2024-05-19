@@ -76,9 +76,10 @@
 
   # склонируйте этот репозиторий и добавьте bin к PATH
   export PATH="$HOME/_/REPOS/macos/bin:$PATH"
-  # bin/ql                 открывает картинки быстрей (а некоторые файлы, например .obj, даже правильней), чем просмотрщик, который вызывается через open
-  # bin/subl               симлинк на Sublime Text
-  # bin/size-by-extension  https://serverfault.com/a/367195/67097
+  # bin/ql                   открывает картинки быстрей (а некоторые файлы, например .obj, даже правильней), чем просмотрщик, который вызывается через open
+  # bin/subl                 симлинк на Sublime Text
+  # bin/size-by-extension    https://serverfault.com/a/367195/67097
+  # bin/number-by-directory  считает файлы в директориях
 
   # если вы -- это я
   source "$HOME/_/REPOS/trash/bash_profile.sh"

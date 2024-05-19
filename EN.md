@@ -73,9 +73,10 @@
 
   # git clone this repo somewhere and append the bin dir to PATH
   export PATH="$HOME/_/REPOS/macos/bin:$PATH"
-  # bin/ql                 opens images faster (and for some files such as .obj even more correctly), than a `open` app
-  # bin/subl               symlink to Sublime Text
-  # bin/size-by-extension  https://serverfault.com/a/367195/67097
+  # bin/ql                   opens images faster (and for some files such as .obj even more correctly), than a `open` app
+  # bin/subl                 symlink to Sublime Text
+  # bin/size-by-extension    https://serverfault.com/a/367195/67097
+  # bin/number-by-directory  counts files in directories
 
   # if you are me
   source "$HOME/_/REPOS/trash/bash_profile.sh"
