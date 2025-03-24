@@ -7,42 +7,45 @@
   ```bash
   defaults write .GlobalPreferences com.apple.trackpad.scaling -1
   ```
+  maybe it's already possible to turn on via GUI, not only Terminal
+* configure **Finder** (on macOS you can open Preferences on any program with `⌘,`)
 
 ## Install main software
 
-  maybe it's already possible to turn on via GUI, not only Terminal
-* configure **Finder** (on macOS you can open Preferences on any program with `⌘,`)
 * install Google **Chrome** and
   * either (if it's a personal machine) configure syncronization to avoid unwanted tab sync or anything
   * or (if it's a machine given at work) bookmark corporative services, check the email
   * install **uBlock Origin Lite** (https://chromewebstore.google.com/detail/ublock-origin-lite/ddkjiahejlhfcafbddmgiahcphecmpfh) and **Empty New Tab Page** (https://chrome.google.com/webstore/detail/empty-new-tab-page/dpjamkmjmigaoobjbekmfgabipmfilij?hl=ru) browser extensions
 * install **messengers** (Slack, etc.) or open them as browser tabs together with email, etc.
+* turn on the Notifications explicitly, since they will be turned off by default for some reason (test browser notification here: https://www.bennish.net/web-notifications.html)
 * install **Sublime Text** (http://www.sublimetext.com/), configure:
   ```
   {
     "atomic_save": false,
-    "auto_complete": false,
+    // "auto_complete": false,
     "color_scheme": "Packages/Color Scheme - Default/Slush & Poppies.tmTheme",
     "ensure_newline_at_eof_on_save": true,
-    "font_size": 32,
+    "font_size": 16,
     "ignored_packages":
     [
       "Vintage"
     ],
-    "index_files": false,
+    // "index_files": false,
     // "show_git_status": false,
     "tab_size": 2,
     "translate_tabs_to_spaces": true,
-    "trim_trailing_white_space_on_save": true
+    "trim_trailing_white_space_on_save": true,
+    "ui_scale": 2.0,  // need restart
   }
   ```
-* and to avoid the unwanted space trimming for Markdown files, create the `~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Markdown.sublime-settings` like this:
+  and to avoid the unwanted space trimming for Markdown files, create the `~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Markdown.sublime-settings` like this:
   ```
   {
     "trim_trailing_white_space_on_save": false,
   }
   ```
   you also can open this file from GUI: ![](https://i.imgur.com/RWFBSbq.png)
+  cmd+shift+P -> Install Package Control, cmd+shift+P -> Install Package -> sublimelinterruby, cmd+shift+P -> Install Package -> xpath
 
 ## Configure Terminal
 

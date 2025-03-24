@@ -17,6 +17,8 @@ EN:* after turning on the **trackpad pointer acceleration** you'll have to relog
   ```
 RU:  возможно нынче уже есть возможность включать ее и через настройки, а не из консоли
 RU:* настроить **Finder** (войти в настройки любой программы в Mac OS можно комбинацией `⌘,`)
+EN:  maybe it's already possible to turn on via GUI, not only Terminal
+EN:* configure **Finder** (on macOS you can open Preferences on any program with `⌘,`)
 
 RU:## Поставить главные проги
 EN:## Install main software
@@ -26,35 +28,36 @@ RU:  * либо (если это домашний компьютер) настр
 RU:  * либо (если это рабочий компьютер) добавить в закладки корпоративные сервисы, проверить почту
 RU:  * поставить расширения **uBlock Origin Lite** (https://chromewebstore.google.com/detail/ublock-origin-lite/ddkjiahejlhfcafbddmgiahcphecmpfh) и **Empty New Tab Page** (https://chrome.google.com/webstore/detail/empty-new-tab-page/dpjamkmjmigaoobjbekmfgabipmfilij?hl=ru)
 RU:* установить **чатики** (Slack и пр.) либо пооткрывать их в браузере вместе с почтой и пр.
-EN:  maybe it's already possible to turn on via GUI, not only Terminal
-EN:* configure **Finder** (on macOS you can open Preferences on any program with `⌘,`)
 EN:* install Google **Chrome** and
 EN:  * either (if it's a personal machine) configure syncronization to avoid unwanted tab sync or anything
 EN:  * or (if it's a machine given at work) bookmark corporative services, check the email
 EN:  * install **uBlock Origin Lite** (https://chromewebstore.google.com/detail/ublock-origin-lite/ddkjiahejlhfcafbddmgiahcphecmpfh) and **Empty New Tab Page** (https://chrome.google.com/webstore/detail/empty-new-tab-page/dpjamkmjmigaoobjbekmfgabipmfilij?hl=ru) browser extensions
 EN:* install **messengers** (Slack, etc.) or open them as browser tabs together with email, etc.
+RU:* включить в системе Уведомления для каждого приложения явным образом, потому что по умолчанию они будут выключены (протестировать можно на https://www.bennish.net/web-notifications.html)
+EN:* turn on the Notifications explicitly, since they will be turned off by default for some reason (test browser notification here: https://www.bennish.net/web-notifications.html)
 RU:* установить **Sublime Text** (http://www.sublimetext.com/), настроить:
 EN:* install **Sublime Text** (http://www.sublimetext.com/), configure:
   ```
   {
     "atomic_save": false,
-    "auto_complete": false,
+    // "auto_complete": false,
     "color_scheme": "Packages/Color Scheme - Default/Slush & Poppies.tmTheme",
     "ensure_newline_at_eof_on_save": true,
-    "font_size": 32,
+    "font_size": 16,
     "ignored_packages":
     [
       "Vintage"
     ],
-    "index_files": false,
+    // "index_files": false,
     // "show_git_status": false,
     "tab_size": 2,
     "translate_tabs_to_spaces": true,
-    "trim_trailing_white_space_on_save": true
+    "trim_trailing_white_space_on_save": true,
+    "ui_scale": 2.0,  // need restart
   }
   ```
-RU:* и чтоб от последней опции не обрезались пробелы на концах строк в Markdown файлвх, создаем файл `~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Markdown.sublime-settings` с содержимым:
-EN:* and to avoid the unwanted space trimming for Markdown files, create the `~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Markdown.sublime-settings` like this:
+RU:  и чтоб от последней опции не обрезались пробелы на концах строк в Markdown файлвх, создаем файл `~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Markdown.sublime-settings` с содержимым:
+EN:  and to avoid the unwanted space trimming for Markdown files, create the `~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Markdown.sublime-settings` like this:
   ```
   {
     "trim_trailing_white_space_on_save": false,
@@ -62,6 +65,7 @@ EN:* and to avoid the unwanted space trimming for Markdown files, create the `~/
   ```
 RU:  можно в этот файл попасть и так: ![](https://i.imgur.com/RWFBSbq.png)
 EN:  you also can open this file from GUI: ![](https://i.imgur.com/RWFBSbq.png)
+  cmd+shift+P -> Install Package Control, cmd+shift+P -> Install Package -> sublimelinterruby, cmd+shift+P -> Install Package -> xpath
 
 RU:## Настроить Терминал
 EN:## Configure Terminal

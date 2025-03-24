@@ -20,32 +20,35 @@
   * либо (если это рабочий компьютер) добавить в закладки корпоративные сервисы, проверить почту
   * поставить расширения **uBlock Origin Lite** (https://chromewebstore.google.com/detail/ublock-origin-lite/ddkjiahejlhfcafbddmgiahcphecmpfh) и **Empty New Tab Page** (https://chrome.google.com/webstore/detail/empty-new-tab-page/dpjamkmjmigaoobjbekmfgabipmfilij?hl=ru)
 * установить **чатики** (Slack и пр.) либо пооткрывать их в браузере вместе с почтой и пр.
+* включить в системе Уведомления для каждого приложения явным образом, потому что по умолчанию они будут выключены (протестировать можно на https://www.bennish.net/web-notifications.html)
 * установить **Sublime Text** (http://www.sublimetext.com/), настроить:
   ```
   {
     "atomic_save": false,
-    "auto_complete": false,
+    // "auto_complete": false,
     "color_scheme": "Packages/Color Scheme - Default/Slush & Poppies.tmTheme",
     "ensure_newline_at_eof_on_save": true,
-    "font_size": 32,
+    "font_size": 16,
     "ignored_packages":
     [
       "Vintage"
     ],
-    "index_files": false,
+    // "index_files": false,
     // "show_git_status": false,
     "tab_size": 2,
     "translate_tabs_to_spaces": true,
-    "trim_trailing_white_space_on_save": true
+    "trim_trailing_white_space_on_save": true,
+    "ui_scale": 2.0,  // need restart
   }
   ```
-* и чтоб от последней опции не обрезались пробелы на концах строк в Markdown файлвх, создаем файл `~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Markdown.sublime-settings` с содержимым:
+  и чтоб от последней опции не обрезались пробелы на концах строк в Markdown файлвх, создаем файл `~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Markdown.sublime-settings` с содержимым:
   ```
   {
     "trim_trailing_white_space_on_save": false,
   }
   ```
   можно в этот файл попасть и так: ![](https://i.imgur.com/RWFBSbq.png)
+  cmd+shift+P -> Install Package Control, cmd+shift+P -> Install Package -> sublimelinterruby, cmd+shift+P -> Install Package -> xpath
 
 ## Настроить Терминал
 
