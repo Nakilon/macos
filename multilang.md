@@ -149,13 +149,13 @@ EN:  # brew install -L   # to list all the available versions for install
 RU:## Настроить SSH
 EN:## Configure SSH
 
-RU:* сгенерировать SSH-ключи и залить `id_rsa.pub` везде, куда нужно, например, в GitHub
-EN:* generate the SSH keys and upload the `id_rsa.pub` everywhere, for example, to GitHub
+RU:* сгенерировать SSH-ключи и залить публичный ключ везде, куда нужно, например, в GitHub
+EN:* generate the SSH keys and upload the public key everywhere, for example, to GitHub
   ```
-  ssh-keygen -t rsa -C "mynewmacbook"
+  ssh-keygen -t ed25519 -C "mynewmac"
   chmod 700 ~/.ssh
-  chmod 600 ~/.ssh/id_rsa
-  chmod 644 ~/.ssh/id_rsa.pub
+  chmod 600 ~/.ssh/id_ed25519
+  chmod 644 ~/.ssh/id_ed25519.pub
   ```
 RU:* пример `~/.ssh/config`:
 EN:* `~/.ssh/config` example:
