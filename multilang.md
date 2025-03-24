@@ -12,8 +12,8 @@ EN:  * turn off the **Correct spelling automatically**, smart quotes
 EN:  * switch change the Fn keys mode
 RU:  * mouse pointer size
 EN:* after turning on the **trackpad pointer acceleration** you'll have to relogin (https://www.reddit.com/r/osx/comments/4u5cny/is_there_a_way_to_disable_trackpad_acceleration/)
-  ```bash
-  defaults write .GlobalPreferences com.apple.trackpad.scaling -1
+  ```console
+  $ defaults write .GlobalPreferences com.apple.trackpad.scaling -1
   ```
 RU:  возможно нынче уже есть возможность включать ее и через настройки, а не из консоли
 RU:* настроить **Finder** (войти в настройки любой программы в Mac OS можно комбинацией `⌘,`)
@@ -37,7 +37,7 @@ RU:* включить в системе Уведомления для каждо
 EN:* turn on the Notifications explicitly, since they will be turned off by default for some reason (test browser notification here: https://www.bennish.net/web-notifications.html)
 RU:* установить **Sublime Text** (http://www.sublimetext.com/), настроить:
 EN:* install **Sublime Text** (http://www.sublimetext.com/), configure:
-  ```
+  ```json
   {
     "atomic_save": false,
     // "auto_complete": false,
@@ -58,7 +58,7 @@ EN:* install **Sublime Text** (http://www.sublimetext.com/), configure:
   ```
 RU:  и чтоб от последней опции не обрезались пробелы на концах строк в Markdown файлвх, создаем файл `~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Markdown.sublime-settings` с содержимым:
 EN:  and to avoid the unwanted space trimming for Markdown files, create the `~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Markdown.sublime-settings` like this:
-  ```
+  ```json
   {
     "trim_trailing_white_space_on_save": false,
   }
@@ -74,10 +74,10 @@ RU:* настроить/создать Профиль -- цвет фона (от
 EN:* configure/create Profile -- background color (grey, 80%), shell (bash or zsh by default)
 RU:* (опционально) настроить **hostname**, который отображается в prompt-е (справка по настройке bash prompt -- http://ss64.com/osx/syntax-prompt.html)
 EN:* (optionally) configure **hostname**, that is displayed to the left from the bash prompt (bash prompt configuration help -- http://ss64.com/osx/syntax-prompt.html)
-  ```bash
-  sudo scutil --set ComputerName "nakibook"
-  sudo scutil --set LocalHostName "nakibook"
-  sudo scutil --set HostName "nakibook"
+  ```console
+  $ sudo scutil --set ComputerName "nakibook"
+  $ sudo scutil --set LocalHostName "nakibook"
+  $ sudo scutil --set HostName "nakibook"
   ```
 RU:  возможно, это можно сделать и через GUI: http://apple.stackexchange.com/a/83801/54395
 EN:  maybe it's already possible to do in GUI: http://apple.stackexchange.com/a/83801/54395
@@ -134,7 +134,7 @@ EN:  # and put the `--no-ignore` there to make it stop ignoring the files from `
   ```
 RU:* если zsh, то настроить `~/.zshrc`:
 EN:* if zsh, then configure `~/.zshrc`:
-  ```
+  ```bash
   export EDITOR=nano
   export PROMPT='%F{111}%m:%F{2}%~ %(!.#.$)%f '
   export LANG='en_US.UTF-8'
@@ -147,11 +147,11 @@ EN:## Configure SSH
 
 RU:* сгенерировать SSH-ключи и залить публичный ключ везде, куда нужно, например, в GitHub
 EN:* generate the SSH keys and upload the public key where needed, for example, to GitHub
-  ```
-  ssh-keygen -t ed25519 -C "mynewmac"
-  chmod 700 ~/.ssh
-  chmod 600 ~/.ssh/id_ed25519
-  chmod 644 ~/.ssh/id_ed25519.pub
+  ```console
+  $ ssh-keygen -t ed25519 -C "mynewmac"
+  $ chmod 700 ~/.ssh
+  $ chmod 600 ~/.ssh/id_ed25519
+  $ chmod 644 ~/.ssh/id_ed25519.pub
   ```
 RU:* пример `~/.ssh/config`:
 EN:* `~/.ssh/config` example:
@@ -172,19 +172,25 @@ RU:* установить Homebrew (http://brew.sh/) -- при этом буду
 RU:* а далее всякие полезности по необходимости:
 EN:* install Homebrew (http://brew.sh/) -- this will automatically install **XCode Command Line Utils**, including `git`, then follow the instructuions on how to add brew to PATH
 EN:* and then other useful stuff if needed:
+  ```console
+  $ brew install tree htop rg graphviz
+  $ brew install ascii cpulimit wifi-password
+  $ brew install jenv node rust go
+  $ brew install ffmpeg exiftool media-info telnet
   ```
-  brew install tree htop rg graphviz
-  brew install ascii cpulimit wifi-password
-  brew install jenv node rust go
-  brew install ffmpeg exiftool media-info telnet
-  ```
-  ```bash
-  brew install rbenv
+  ```console
+  $ brew install rbenv
 RU:  # brew install -L   # получить список всех доступных для установки
 EN:  # brew install -L   # to list all the available versions for install
   ```
 RU:  в случае zsh нужно вручную добавить rbenv в autocomplete -- см. ихнюю документацию
+RU:  к тому же, у них не документирована правильная настройка:
 EN:  in case of zsh refer to their docs for setting up the autocomplete
+EN:  also their docs suck:
+  ```console
+  $ export PATH="$HOME/.rbenv/bin:$PATH"
+  $ eval "$(rbenv init - zsh)"
+  ```
 
 RU:## Прочее
 EN:## Miscelanous
@@ -231,6 +237,6 @@ EN:* configure GIT
   ```
 RU:* выключить глючную колоризацию IRB
 EN:* disable the glitchy IRB colorization
-  ```
-  echo "IRB.conf[:USE_COLORIZE] = false" >> ~/.irbrc
+  ```console
+  $ echo "IRB.conf[:USE_COLORIZE] = false" >> ~/.irbrc
   ```

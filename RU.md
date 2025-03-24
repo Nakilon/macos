@@ -7,8 +7,8 @@
   * размер указателя мыши
 * включив **ускорение указателя трекпада** понадобится перелогиниться (https://www.reddit.com/r/osx/comments/4u5cny/is_there_a_way_to_disable_trackpad_acceleration/)
   * mouse pointer size
-  ```bash
-  defaults write .GlobalPreferences com.apple.trackpad.scaling -1
+  ```console
+  $ defaults write .GlobalPreferences com.apple.trackpad.scaling -1
   ```
   возможно нынче уже есть возможность включать ее и через настройки, а не из консоли
 * настроить **Finder** (войти в настройки любой программы в Mac OS можно комбинацией `⌘,`)
@@ -22,7 +22,7 @@
 * установить **чатики** (Slack и пр.) либо пооткрывать их в браузере вместе с почтой и пр.
 * включить в системе Уведомления для каждого приложения явным образом, потому что по умолчанию они будут выключены (протестировать можно на https://www.bennish.net/web-notifications.html)
 * установить **Sublime Text** (http://www.sublimetext.com/), настроить:
-  ```
+  ```json
   {
     "atomic_save": false,
     // "auto_complete": false,
@@ -42,7 +42,7 @@
   }
   ```
   и чтоб от последней опции не обрезались пробелы на концах строк в Markdown файлвх, создаем файл `~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Markdown.sublime-settings` с содержимым:
-  ```
+  ```json
   {
     "trim_trailing_white_space_on_save": false,
   }
@@ -54,10 +54,10 @@
 
 * настроить/создать Профиль -- цвет фона (оттенки серого, 80%), шелл (bash или zsh по умолчанию)
 * (опционально) настроить **hostname**, который отображается в prompt-е (справка по настройке bash prompt -- http://ss64.com/osx/syntax-prompt.html)
-  ```bash
-  sudo scutil --set ComputerName "nakibook"
-  sudo scutil --set LocalHostName "nakibook"
-  sudo scutil --set HostName "nakibook"
+  ```console
+  $ sudo scutil --set ComputerName "nakibook"
+  $ sudo scutil --set LocalHostName "nakibook"
+  $ sudo scutil --set HostName "nakibook"
   ```
   возможно, это можно сделать и через GUI: http://apple.stackexchange.com/a/83801/54395
 * если bash, то настроить `~/.bash_profile`:
@@ -102,7 +102,7 @@
   # и положить туда одну строку: `--no-ignore`, чтоб он не игнорил файлы из `.gitignore`
   ```
 * если zsh, то настроить `~/.zshrc`:
-  ```
+  ```bash
   export EDITOR=nano
   export PROMPT='%F{111}%m:%F{2}%~ %(!.#.$)%f '
   export LANG='en_US.UTF-8'
@@ -113,11 +113,11 @@
 ## Настроить SSH
 
 * сгенерировать SSH-ключи и залить публичный ключ везде, куда нужно, например, в GitHub
-  ```
-  ssh-keygen -t ed25519 -C "mynewmac"
-  chmod 700 ~/.ssh
-  chmod 600 ~/.ssh/id_ed25519
-  chmod 644 ~/.ssh/id_ed25519.pub
+  ```console
+  $ ssh-keygen -t ed25519 -C "mynewmac"
+  $ chmod 700 ~/.ssh
+  $ chmod 600 ~/.ssh/id_ed25519
+  $ chmod 644 ~/.ssh/id_ed25519.pub
   ```
 * пример `~/.ssh/config`:
   ```
@@ -134,17 +134,22 @@
 
 * установить Homebrew (http://brew.sh/) -- при этом будут автоматически установлены **XCode Command Line Utils**, в составе которых `git`, после чего следуйте инструкциям по добавлению brew в PATH
 * а далее всякие полезности по необходимости:
+  ```console
+  $ brew install tree htop rg graphviz
+  $ brew install ascii cpulimit wifi-password
+  $ brew install jenv node rust go
+  $ brew install ffmpeg exiftool media-info telnet
   ```
-  brew install tree htop rg graphviz
-  brew install ascii cpulimit wifi-password
-  brew install jenv node rust go
-  brew install ffmpeg exiftool media-info telnet
-  ```
-  ```bash
-  brew install rbenv
+  ```console
+  $ brew install rbenv
   # brew install -L   # получить список всех доступных для установки
   ```
   в случае zsh нужно вручную добавить rbenv в autocomplete -- см. ихнюю документацию
+  к тому же, у них не документирована правильная настройка:
+  ```console
+  $ export PATH="$HOME/.rbenv/bin:$PATH"
+  $ eval "$(rbenv init - zsh)"
+  ```
 
 ## Прочее
 
@@ -188,6 +193,6 @@
     path = /Users/johndoe/backup/.gitconfig
   ```
 * выключить глючную колоризацию IRB
-  ```
-  echo "IRB.conf[:USE_COLORIZE] = false" >> ~/.irbrc
+  ```console
+  $ echo "IRB.conf[:USE_COLORIZE] = false" >> ~/.irbrc
   ```

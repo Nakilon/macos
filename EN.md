@@ -4,8 +4,8 @@
   * turn off the **Correct spelling automatically**, smart quotes
   * switch change the Fn keys mode
 * after turning on the **trackpad pointer acceleration** you'll have to relogin (https://www.reddit.com/r/osx/comments/4u5cny/is_there_a_way_to_disable_trackpad_acceleration/)
-  ```bash
-  defaults write .GlobalPreferences com.apple.trackpad.scaling -1
+  ```console
+  $ defaults write .GlobalPreferences com.apple.trackpad.scaling -1
   ```
   maybe it's already possible to turn on via GUI, not only Terminal
 * configure **Finder** (on macOS you can open Preferences on any program with `⌘,`)
@@ -19,7 +19,7 @@
 * install **messengers** (Slack, etc.) or open them as browser tabs together with email, etc.
 * turn on the Notifications explicitly, since they will be turned off by default for some reason (test browser notification here: https://www.bennish.net/web-notifications.html)
 * install **Sublime Text** (http://www.sublimetext.com/), configure:
-  ```
+  ```json
   {
     "atomic_save": false,
     // "auto_complete": false,
@@ -39,7 +39,7 @@
   }
   ```
   and to avoid the unwanted space trimming for Markdown files, create the `~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Markdown.sublime-settings` like this:
-  ```
+  ```json
   {
     "trim_trailing_white_space_on_save": false,
   }
@@ -51,10 +51,10 @@
 
 * configure/create Profile -- background color (grey, 80%), shell (bash or zsh by default)
 * (optionally) configure **hostname**, that is displayed to the left from the bash prompt (bash prompt configuration help -- http://ss64.com/osx/syntax-prompt.html)
-  ```bash
-  sudo scutil --set ComputerName "nakibook"
-  sudo scutil --set LocalHostName "nakibook"
-  sudo scutil --set HostName "nakibook"
+  ```console
+  $ sudo scutil --set ComputerName "nakibook"
+  $ sudo scutil --set LocalHostName "nakibook"
+  $ sudo scutil --set HostName "nakibook"
   ```
   maybe it's already possible to do in GUI: http://apple.stackexchange.com/a/83801/54395
 * if bash, then configure `~/.bash_profile`:
@@ -97,7 +97,7 @@
   # and put the `--no-ignore` there to make it stop ignoring the files from `.gitignore`
   ```
 * if zsh, then configure `~/.zshrc`:
-  ```
+  ```bash
   export EDITOR=nano
   export PROMPT='%F{111}%m:%F{2}%~ %(!.#.$)%f '
   export LANG='en_US.UTF-8'
@@ -108,11 +108,11 @@
 ## Configure SSH
 
 * generate the SSH keys and upload the public key where needed, for example, to GitHub
-  ```
-  ssh-keygen -t ed25519 -C "mynewmac"
-  chmod 700 ~/.ssh
-  chmod 600 ~/.ssh/id_ed25519
-  chmod 644 ~/.ssh/id_ed25519.pub
+  ```console
+  $ ssh-keygen -t ed25519 -C "mynewmac"
+  $ chmod 700 ~/.ssh
+  $ chmod 600 ~/.ssh/id_ed25519
+  $ chmod 644 ~/.ssh/id_ed25519.pub
   ```
 * `~/.ssh/config` example:
   ```
@@ -129,17 +129,22 @@
 
 * install Homebrew (http://brew.sh/) -- this will automatically install **XCode Command Line Utils**, including `git`, then follow the instructuions on how to add brew to PATH
 * and then other useful stuff if needed:
+  ```console
+  $ brew install tree htop rg graphviz
+  $ brew install ascii cpulimit wifi-password
+  $ brew install jenv node rust go
+  $ brew install ffmpeg exiftool media-info telnet
   ```
-  brew install tree htop rg graphviz
-  brew install ascii cpulimit wifi-password
-  brew install jenv node rust go
-  brew install ffmpeg exiftool media-info telnet
-  ```
-  ```bash
-  brew install rbenv
+  ```console
+  $ brew install rbenv
   # brew install -L   # to list all the available versions for install
   ```
   in case of zsh refer to their docs for setting up the autocomplete
+  also their docs suck:
+  ```console
+  $ export PATH="$HOME/.rbenv/bin:$PATH"
+  $ eval "$(rbenv init - zsh)"
+  ```
 
 ## Miscelanous
 
@@ -183,6 +188,6 @@
     path = /Users/johndoe/backup/.gitconfig
   ```
 * disable the glitchy IRB colorization
-  ```
-  echo "IRB.conf[:USE_COLORIZE] = false" >> ~/.irbrc
+  ```console
+  $ echo "IRB.conf[:USE_COLORIZE] = false" >> ~/.irbrc
   ```
