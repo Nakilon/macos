@@ -15,7 +15,7 @@
 * install Google **Chrome** and
   * either (if it's a personal machine) configure syncronization to avoid unwanted tab sync or anything
   * or (if it's a machine given at work) bookmark corporative services, check the email
-  * install **uBlock Origin** (https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm) and **Empty New Tab Page** (https://chrome.google.com/webstore/detail/empty-new-tab-page/dpjamkmjmigaoobjbekmfgabipmfilij?hl=ru) browser extensions
+  * install **uBlock Origin Lite** (https://chromewebstore.google.com/detail/ublock-origin-lite/ddkjiahejlhfcafbddmgiahcphecmpfh) and **Empty New Tab Page** (https://chrome.google.com/webstore/detail/empty-new-tab-page/dpjamkmjmigaoobjbekmfgabipmfilij?hl=ru) browser extensions
 * install **messengers** (Slack, etc.) or open them as browser tabs together with email, etc.
 * install **Sublime Text** (http://www.sublimetext.com/), configure:
   ```
@@ -46,14 +46,15 @@
 
 ## Configure Terminal
 
-* configure **Terminal** and **hostname**, that is displayed to the left from the bash prompt (bash prompt configuration help -- http://ss64.com/osx/syntax-prompt.html)
+* configure/create Profile -- background color (grey, 80%), shell (bash or zsh by default)
+* (optionally) configure **hostname**, that is displayed to the left from the bash prompt (bash prompt configuration help -- http://ss64.com/osx/syntax-prompt.html)
   ```bash
   sudo scutil --set ComputerName "nakibook"
   sudo scutil --set LocalHostName "nakibook"
   sudo scutil --set HostName "nakibook"
   ```
   maybe it's already possible to do in GUI: http://apple.stackexchange.com/a/83801/54395
-* configure `~/.bash_profile`
+* if bash, then configure `~/.bash_profile`:
   ```bash
   shopt -s histappend
   export HISTFILESIZE=100500
@@ -89,35 +90,26 @@
   ```
   the rest depends on what you've installed
   ```
-  # eval "$(rbenv init -)"
-  # export PATH="$HOME/.jenv/bin:$PATH"
-  # eval "$(jenv init -)"
-
   # export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
-  # and put the`--no-ignore` to make it stop ignoring the files from `.gitignore`
+  # and put the `--no-ignore` there to make it stop ignoring the files from `.gitignore`
   ```
-
-## Install other software
-
-* install Homebrew (http://brew.sh/) -- this will automatically install **XCode Command Line Utils**, including `git`, and then other useful stuff if needed:
+* if zsh, then configure `~/.zshrc`:
   ```
-  brew install ascii tree htop rg cpulimit wifi-password
-  brew install jenv node rust go
-  brew install ffmpeg exiftool media-info graphviz telnet
-  ```
-  ```bash
-  brew install rbenv  # install rbenv
-  # brew install -L   # to list all the available versions for install
+  export EDITOR=nano
+  export PROMPT='%F{111}%m:%F{2}%~ %(!.#.$)%f '
+  export LANG='en_US.UTF-8'
+  export LESS=' -R '
+  export PATH="$HOME/_/REPOS/macos/bin:$PATH"
   ```
 
 ## Configure SSH
 
-* generate the SSH keys and upload the `id_rsa.pub` everywhere, for example, to GitHub
+* generate the SSH keys and upload the public key where needed, for example, to GitHub
   ```
-  ssh-keygen -t rsa -C "mynewmacbook"
+  ssh-keygen -t ed25519 -C "mynewmac"
   chmod 700 ~/.ssh
-  chmod 600 ~/.ssh/id_rsa
-  chmod 644 ~/.ssh/id_rsa.pub
+  chmod 600 ~/.ssh/id_ed25519
+  chmod 644 ~/.ssh/id_ed25519.pub
   ```
 * `~/.ssh/config` example:
   ```
@@ -130,7 +122,23 @@
     # ServerAliveInterval 120
   ```
 
- Miscelanous
+## Install other software
+
+* install Homebrew (http://brew.sh/) -- this will automatically install **XCode Command Line Utils**, including `git`, then follow the instructuions on how to add brew to PATH
+* and then other useful stuff if needed:
+  ```
+  brew install tree htop rg graphviz
+  brew install ascii cpulimit wifi-password
+  brew install jenv node rust go
+  brew install ffmpeg exiftool media-info telnet
+  ```
+  ```bash
+  brew install rbenv
+  # brew install -L   # to list all the available versions for install
+  ```
+  in case of zsh refer to their docs for setting up the autocomplete
+
+## Miscelanous
 
 * configure GIT
   ```

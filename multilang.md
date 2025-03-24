@@ -5,10 +5,12 @@ RU:* настроить все в **Системных настройках**, �
 RU:  * выключить "Исправлять ошибки автоматически", "Смарт-кавычки"
 RU:  * "Использовать функциональные клавиши как стандартные"
 RU:  * "Источник ввода -- США, Русская ПК" (на новых макбуках тильда будет слева внизу)
+RU:  * размер указателя мыши
 RU:* включив **ускорение указателя трекпада** понадобится перелогиниться (https://www.reddit.com/r/osx/comments/4u5cny/is_there_a_way_to_disable_trackpad_acceleration/)
 EN:* go through the **System Preferences**, for example:
 EN:  * turn off the **Correct spelling automatically**, smart quotes
 EN:  * switch change the Fn keys mode
+RU:  * mouse pointer size
 EN:* after turning on the **trackpad pointer acceleration** you'll have to relogin (https://www.reddit.com/r/osx/comments/4u5cny/is_there_a_way_to_disable_trackpad_acceleration/)
   ```bash
   defaults write .GlobalPreferences com.apple.trackpad.scaling -1
@@ -22,14 +24,14 @@ EN:## Install main software
 RU:* поставить Google **Chrome** и
 RU:  * либо (если это домашний компьютер) настроить параметры синхронизации, чтоб не засинхрил табы или еще чего
 RU:  * либо (если это рабочий компьютер) добавить в закладки корпоративные сервисы, проверить почту
-RU:  * поставить расширения **uBlock Origin** (https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm) и **Empty New Tab Page** (https://chrome.google.com/webstore/detail/empty-new-tab-page/dpjamkmjmigaoobjbekmfgabipmfilij?hl=ru)
+RU:  * поставить расширения **uBlock Origin Lite** (https://chromewebstore.google.com/detail/ublock-origin-lite/ddkjiahejlhfcafbddmgiahcphecmpfh) и **Empty New Tab Page** (https://chrome.google.com/webstore/detail/empty-new-tab-page/dpjamkmjmigaoobjbekmfgabipmfilij?hl=ru)
 RU:* установить **чатики** (Slack и пр.) либо пооткрывать их в браузере вместе с почтой и пр.
 EN:  maybe it's already possible to turn on via GUI, not only Terminal
 EN:* configure **Finder** (on macOS you can open Preferences on any program with `⌘,`)
 EN:* install Google **Chrome** and
 EN:  * either (if it's a personal machine) configure syncronization to avoid unwanted tab sync or anything
 EN:  * or (if it's a machine given at work) bookmark corporative services, check the email
-EN:  * install **uBlock Origin** (https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm) and **Empty New Tab Page** (https://chrome.google.com/webstore/detail/empty-new-tab-page/dpjamkmjmigaoobjbekmfgabipmfilij?hl=ru) browser extensions
+EN:  * install **uBlock Origin Lite** (https://chromewebstore.google.com/detail/ublock-origin-lite/ddkjiahejlhfcafbddmgiahcphecmpfh) and **Empty New Tab Page** (https://chrome.google.com/webstore/detail/empty-new-tab-page/dpjamkmjmigaoobjbekmfgabipmfilij?hl=ru) browser extensions
 EN:* install **messengers** (Slack, etc.) or open them as browser tabs together with email, etc.
 RU:* установить **Sublime Text** (http://www.sublimetext.com/), настроить:
 EN:* install **Sublime Text** (http://www.sublimetext.com/), configure:
@@ -64,8 +66,10 @@ EN:  you also can open this file from GUI: ![](https://i.imgur.com/RWFBSbq.png)
 RU:## Настроить Терминал
 EN:## Configure Terminal
 
-RU:* настроить **Терминал** и **hostname**, который отображается в prompt-е (справка по настройке bash prompt -- http://ss64.com/osx/syntax-prompt.html)
-EN:* configure **Terminal** and **hostname**, that is displayed to the left from the bash prompt (bash prompt configuration help -- http://ss64.com/osx/syntax-prompt.html)
+RU:* настроить/создать Профиль -- цвет фона (оттенки серого, 80%), шелл (bash или zsh по умолчанию)
+EN:* configure/create Profile -- background color (grey, 80%), shell (bash or zsh by default)
+RU:* (опционально) настроить **hostname**, который отображается в prompt-е (справка по настройке bash prompt -- http://ss64.com/osx/syntax-prompt.html)
+EN:* (optionally) configure **hostname**, that is displayed to the left from the bash prompt (bash prompt configuration help -- http://ss64.com/osx/syntax-prompt.html)
   ```bash
   sudo scutil --set ComputerName "nakibook"
   sudo scutil --set LocalHostName "nakibook"
@@ -73,8 +77,8 @@ EN:* configure **Terminal** and **hostname**, that is displayed to the left from
   ```
 RU:  возможно, это можно сделать и через GUI: http://apple.stackexchange.com/a/83801/54395
 EN:  maybe it's already possible to do in GUI: http://apple.stackexchange.com/a/83801/54395
-RU:* настроить `~/.bash_profile`
-EN:* configure `~/.bash_profile`
+RU:* если bash, то настроить `~/.bash_profile`:
+EN:* if bash, then configure `~/.bash_profile`:
   ```bash
   shopt -s histappend
   export HISTFILESIZE=100500
@@ -120,37 +124,25 @@ EN:  # allows you to create a OS corner notifications after a while
 RU:  далее уже в зависимости от того, что у вас будет установлено
 EN:  the rest depends on what you've installed
   ```
-  # eval "$(rbenv init -)"
-  # export PATH="$HOME/.jenv/bin:$PATH"
-  # eval "$(jenv init -)"
-
   # export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 RU:  # и положить туда одну строку: `--no-ignore`, чтоб он не игнорил файлы из `.gitignore`
-EN:  # and put the`--no-ignore` to make it stop ignoring the files from `.gitignore`
+EN:  # and put the `--no-ignore` there to make it stop ignoring the files from `.gitignore`
   ```
-
-RU:## Поставить остальные проги
-EN:## Install other software
-
-RU:* установить Homebrew (http://brew.sh/) -- при этом будут автоматически установлены **XCode Command Line Utils**, в составе которых `git`, а далее всякие полезности по необходимости:
-EN:* install Homebrew (http://brew.sh/) -- this will automatically install **XCode Command Line Utils**, including `git`, and then other useful stuff if needed:
+RU:* если zsh, то настроить `~/.zshrc`:
+EN:* if zsh, then configure `~/.zshrc`:
   ```
-  brew install ascii tree htop rg cpulimit wifi-password
-  brew install jenv node rust go
-  brew install ffmpeg exiftool media-info graphviz telnet
-  ```
-  ```bash
-RU:  brew install rbenv  # установить rbenv
-EN:  brew install rbenv  # install rbenv
-RU:  # brew install -L   # получить список всех доступных для установки
-EN:  # brew install -L   # to list all the available versions for install
+  export EDITOR=nano
+  export PROMPT='%F{111}%m:%F{2}%~ %(!.#.$)%f '
+  export LANG='en_US.UTF-8'
+  export LESS=' -R '
+  export PATH="$HOME/_/REPOS/macos/bin:$PATH"
   ```
 
 RU:## Настроить SSH
 EN:## Configure SSH
 
 RU:* сгенерировать SSH-ключи и залить публичный ключ везде, куда нужно, например, в GitHub
-EN:* generate the SSH keys and upload the public key everywhere, for example, to GitHub
+EN:* generate the SSH keys and upload the public key where needed, for example, to GitHub
   ```
   ssh-keygen -t ed25519 -C "mynewmac"
   chmod 700 ~/.ssh
@@ -169,8 +161,29 @@ EN:* `~/.ssh/config` example:
     # ServerAliveInterval 120
   ```
 
-RU: Прочее
-EN: Miscelanous
+RU:## Поставить остальные проги
+EN:## Install other software
+
+RU:* установить Homebrew (http://brew.sh/) -- при этом будут автоматически установлены **XCode Command Line Utils**, в составе которых `git`, после чего следуйте инструкциям по добавлению brew в PATH
+RU:* а далее всякие полезности по необходимости:
+EN:* install Homebrew (http://brew.sh/) -- this will automatically install **XCode Command Line Utils**, including `git`, then follow the instructuions on how to add brew to PATH
+EN:* and then other useful stuff if needed:
+  ```
+  brew install tree htop rg graphviz
+  brew install ascii cpulimit wifi-password
+  brew install jenv node rust go
+  brew install ffmpeg exiftool media-info telnet
+  ```
+  ```bash
+  brew install rbenv
+RU:  # brew install -L   # получить список всех доступных для установки
+EN:  # brew install -L   # to list all the available versions for install
+  ```
+RU:  в случае zsh нужно вручную добавить rbenv в autocomplete -- см. ихнюю документацию
+EN:  in case of zsh refer to their docs for setting up the autocomplete
+
+RU:## Прочее
+EN:## Miscelanous
 
 RU:* настроить GIT
 EN:* configure GIT

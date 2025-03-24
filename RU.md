@@ -4,7 +4,9 @@
   * выключить "Исправлять ошибки автоматически", "Смарт-кавычки"
   * "Использовать функциональные клавиши как стандартные"
   * "Источник ввода -- США, Русская ПК" (на новых макбуках тильда будет слева внизу)
+  * размер указателя мыши
 * включив **ускорение указателя трекпада** понадобится перелогиниться (https://www.reddit.com/r/osx/comments/4u5cny/is_there_a_way_to_disable_trackpad_acceleration/)
+  * mouse pointer size
   ```bash
   defaults write .GlobalPreferences com.apple.trackpad.scaling -1
   ```
@@ -16,7 +18,7 @@
 * поставить Google **Chrome** и
   * либо (если это домашний компьютер) настроить параметры синхронизации, чтоб не засинхрил табы или еще чего
   * либо (если это рабочий компьютер) добавить в закладки корпоративные сервисы, проверить почту
-  * поставить расширения **uBlock Origin** (https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm) и **Empty New Tab Page** (https://chrome.google.com/webstore/detail/empty-new-tab-page/dpjamkmjmigaoobjbekmfgabipmfilij?hl=ru)
+  * поставить расширения **uBlock Origin Lite** (https://chromewebstore.google.com/detail/ublock-origin-lite/ddkjiahejlhfcafbddmgiahcphecmpfh) и **Empty New Tab Page** (https://chrome.google.com/webstore/detail/empty-new-tab-page/dpjamkmjmigaoobjbekmfgabipmfilij?hl=ru)
 * установить **чатики** (Slack и пр.) либо пооткрывать их в браузере вместе с почтой и пр.
 * установить **Sublime Text** (http://www.sublimetext.com/), настроить:
   ```
@@ -47,14 +49,15 @@
 
 ## Настроить Терминал
 
-* настроить **Терминал** и **hostname**, который отображается в prompt-е (справка по настройке bash prompt -- http://ss64.com/osx/syntax-prompt.html)
+* настроить/создать Профиль -- цвет фона (оттенки серого, 80%), шелл (bash или zsh по умолчанию)
+* (опционально) настроить **hostname**, который отображается в prompt-е (справка по настройке bash prompt -- http://ss64.com/osx/syntax-prompt.html)
   ```bash
   sudo scutil --set ComputerName "nakibook"
   sudo scutil --set LocalHostName "nakibook"
   sudo scutil --set HostName "nakibook"
   ```
   возможно, это можно сделать и через GUI: http://apple.stackexchange.com/a/83801/54395
-* настроить `~/.bash_profile`
+* если bash, то настроить `~/.bash_profile`:
   ```bash
   shopt -s histappend
   export HISTFILESIZE=100500
@@ -92,35 +95,26 @@
   ```
   далее уже в зависимости от того, что у вас будет установлено
   ```
-  # eval "$(rbenv init -)"
-  # export PATH="$HOME/.jenv/bin:$PATH"
-  # eval "$(jenv init -)"
-
   # export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
   # и положить туда одну строку: `--no-ignore`, чтоб он не игнорил файлы из `.gitignore`
   ```
-
-## Поставить остальные проги
-
-* установить Homebrew (http://brew.sh/) -- при этом будут автоматически установлены **XCode Command Line Utils**, в составе которых `git`, а далее всякие полезности по необходимости:
+* если zsh, то настроить `~/.zshrc`:
   ```
-  brew install ascii tree htop rg cpulimit wifi-password
-  brew install jenv node rust go
-  brew install ffmpeg exiftool media-info graphviz telnet
-  ```
-  ```bash
-  brew install rbenv  # установить rbenv
-  # brew install -L   # получить список всех доступных для установки
+  export EDITOR=nano
+  export PROMPT='%F{111}%m:%F{2}%~ %(!.#.$)%f '
+  export LANG='en_US.UTF-8'
+  export LESS=' -R '
+  export PATH="$HOME/_/REPOS/macos/bin:$PATH"
   ```
 
 ## Настроить SSH
 
-* сгенерировать SSH-ключи и залить `id_rsa.pub` везде, куда нужно, например, в GitHub
+* сгенерировать SSH-ключи и залить публичный ключ везде, куда нужно, например, в GitHub
   ```
-  ssh-keygen -t rsa -C "mynewmacbook"
+  ssh-keygen -t ed25519 -C "mynewmac"
   chmod 700 ~/.ssh
-  chmod 600 ~/.ssh/id_rsa
-  chmod 644 ~/.ssh/id_rsa.pub
+  chmod 600 ~/.ssh/id_ed25519
+  chmod 644 ~/.ssh/id_ed25519.pub
   ```
 * пример `~/.ssh/config`:
   ```
@@ -133,7 +127,23 @@
     # ServerAliveInterval 120
   ```
 
- Прочее
+## Поставить остальные проги
+
+* установить Homebrew (http://brew.sh/) -- при этом будут автоматически установлены **XCode Command Line Utils**, в составе которых `git`, после чего следуйте инструкциям по добавлению brew в PATH
+* а далее всякие полезности по необходимости:
+  ```
+  brew install tree htop rg graphviz
+  brew install ascii cpulimit wifi-password
+  brew install jenv node rust go
+  brew install ffmpeg exiftool media-info telnet
+  ```
+  ```bash
+  brew install rbenv
+  # brew install -L   # получить список всех доступных для установки
+  ```
+  в случае zsh нужно вручную добавить rbenv в autocomplete -- см. ихнюю документацию
+
+## Прочее
 
 * настроить GIT
   ```
