@@ -240,3 +240,8 @@ EN:* disable the glitchy IRB colorization
   ```console
   $ echo "IRB.conf[:USE_COLORIZE] = false" >> ~/.irbrc
   ```
+RU:* правильно посмотреть свободное место на диске
+EN:* correctly check free disk space
+   ```console
+   $ diskutil info / | grep -E 'Container (Total|Free) Space'
+   ```
